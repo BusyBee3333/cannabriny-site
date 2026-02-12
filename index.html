@@ -1,0 +1,3384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CannaBri Processing NY — Crafting New York's Finest Cannabis Products</title>
+<meta name="description" content="CannaBri Processing NY is a licensed New York State cannabis manufacturing facility with 10+ years of formulation and manufacturing expertise. White-label & contract manufacturing for edibles, vapes, tinctures, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════
+   CSS RESET & VARIABLES
+   ═══════════════════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-card: #1a1a1a;
+  --green-primary: #2d6a4f;
+  --green-light: #40916c;
+  --green-glow: #52b788;
+  --green-dark: #1b4332;
+  --gold: #d4a76a;
+  --gold-light: #e8c88a;
+  --gold-dark: #b8894e;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-muted: #666666;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--green-primary) var(--bg-primary);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--green-primary); border-radius: 3px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ═══════════════════════════════════════════════════════
+   CUSTOM CURSOR
+   ═══════════════════════════════════════════════════════ */
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--green-glow);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  mix-blend-mode: screen;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid rgba(82, 183, 136, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition: transform 0.3s var(--ease-out-expo), width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+.cursor-ring.hover {
+  width: 60px;
+  height: 60px;
+  border-color: var(--gold);
+}
+
+@media (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   GLOBAL TYPOGRAPHY & UTILITIES
+   ═══════════════════════════════════════════════════════ */
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; line-height: 1.1; }
+
+.section-label {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+}
+
+section {
+  padding: clamp(4rem, 10vw, 8rem) 0;
+  position: relative;
+}
+
+/* Scroll reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger children */
+.stagger-children .reveal:nth-child(1) { transition-delay: 0s; }
+.stagger-children .reveal:nth-child(2) { transition-delay: 0.1s; }
+.stagger-children .reveal:nth-child(3) { transition-delay: 0.2s; }
+.stagger-children .reveal:nth-child(4) { transition-delay: 0.3s; }
+.stagger-children .reveal:nth-child(5) { transition-delay: 0.4s; }
+.stagger-children .reveal:nth-child(6) { transition-delay: 0.5s; }
+
+.highlight-green {
+  background: linear-gradient(135deg, var(--green-glow), var(--green-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.highlight-gold {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══════════════════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.2rem 0;
+  transition: all 0.5s var(--ease-out-expo);
+}
+
+.nav.scrolled {
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 0.8rem 0;
+}
+
+.nav.hidden {
+  transform: translateY(-100%);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+}
+
+.nav-logo {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1001;
+}
+
+.nav-logo img {
+  height: 65px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+.nav.scrolled .nav-logo img {
+  height: 50px;
+}
+
+.nav-logo svg {
+  width: 36px;
+  height: 36px;
+}
+
+.nav-logo .logo-canna {
+  color: var(--green-glow);
+}
+
+.nav-logo .logo-bri {
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--green-glow);
+  transition: width 0.4s var(--ease-out-expo);
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  font-family: var(--font-heading) !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  padding: 0.55rem 1.4rem;
+  background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+  color: #fff !important;
+  border-radius: 50px;
+  letter-spacing: 0.5px !important;
+  transition: all 0.4s var(--ease-out-expo) !important;
+  box-shadow: 0 0 20px rgba(45, 106, 79, 0.3);
+}
+
+.nav-cta::after { display: none !important; }
+
+.nav-cta:hover {
+  box-shadow: 0 0 40px rgba(82, 183, 136, 0.5) !important;
+  transform: translateY(-2px);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 8px;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--text-primary);
+  transition: all 0.4s var(--ease-out-expo);
+  transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile menu overlay */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s var(--ease-out-expo);
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-links {
+  list-style: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.mobile-menu-links a {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.mobile-menu.open .mobile-menu-links a {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu.open .mobile-menu-links li:nth-child(1) a { transition-delay: 0.1s; }
+.mobile-menu.open .mobile-menu-links li:nth-child(2) a { transition-delay: 0.15s; }
+.mobile-menu.open .mobile-menu-links li:nth-child(3) a { transition-delay: 0.2s; }
+.mobile-menu.open .mobile-menu-links li:nth-child(4) a { transition-delay: 0.25s; }
+.mobile-menu.open .mobile-menu-links li:nth-child(5) a { transition-delay: 0.3s; }
+.mobile-menu.open .mobile-menu-links li:nth-child(6) a { transition-delay: 0.35s; }
+.mobile-menu.open .mobile-menu-links li:nth-child(7) a { transition-delay: 0.4s; }
+.mobile-menu.open .mobile-menu-links li:nth-child(8) a { transition-delay: 0.45s; }
+.mobile-menu.open .mobile-menu-links li:nth-child(9) a { transition-delay: 0.5s; }
+
+.mobile-menu-links a:hover {
+  color: var(--green-glow);
+}
+
+@media (max-width: 1050px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* Hero background video */
+.hero-video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.7);
+  z-index: 1;
+}
+
+/* Animated gradient mesh background */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: -50%;
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(45, 106, 79, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(212, 167, 106, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(27, 67, 50, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 40% 30%, rgba(64, 145, 108, 0.12) 0%, transparent 40%);
+  animation: heroGradientShift 15s ease-in-out infinite alternate;
+}
+
+@keyframes heroGradientShift {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  33% { transform: translate(2%, -3%) rotate(1deg) scale(1.02); }
+  66% { transform: translate(-2%, 2%) rotate(-1deg) scale(0.98); }
+  100% { transform: translate(1%, -1%) rotate(0.5deg) scale(1.01); }
+}
+
+/* Cannabis leaf texture overlay */
+.hero-texture {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M60 10 C55 30, 35 35, 20 30 C35 40, 40 55, 35 70 C45 60, 55 55, 60 45 C65 55, 75 60, 85 70 C80 55, 85 40, 100 30 C85 35, 65 30, 60 10Z' fill='%2352b788' fill-opacity='0.5'/%3E%3Cline x1='60' y1='45' x2='60' y2='110' stroke='%2352b788' stroke-opacity='0.3' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+}
+
+/* Particle canvas */
+#heroParticles {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+/* Noise grain overlay */
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  pointer-events: none;
+}
+
+/* Vignette */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(10, 10, 10, 0.7) 100%);
+  pointer-events: none;
+}
+
+/* Bottom fade */
+.hero-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  z-index: 4;
+  background: linear-gradient(to bottom, transparent, var(--bg-primary));
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  max-width: 950px;
+  padding: 0 2rem;
+}
+
+.hero-logo {
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 1s var(--ease-out-expo) 0.2s forwards;
+}
+
+.hero-logo img {
+  height: 100px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+@media (max-width: 600px) {
+  .hero-logo img { height: 70px; }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--gold-light);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 1s var(--ease-out-expo) 0.3s forwards;
+}
+
+.hero-badge-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--green-glow);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(82, 183, 136, 0.5); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 8px rgba(82, 183, 136, 0); }
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 7vw, 5.2rem);
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroFadeUp 1s var(--ease-out-expo) 0.5s forwards;
+}
+
+.hero-title .highlight-green {
+  background: linear-gradient(135deg, var(--green-glow), var(--green-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-title .highlight-gold {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroFadeUp 1s var(--ease-out-expo) 0.7s forwards;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroFadeUp 1s var(--ease-out-expo) 0.9s forwards;
+}
+
+@keyframes heroFadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Primary CTA button */
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem 2.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.4s var(--ease-out-expo);
+  box-shadow: 0 0 30px rgba(45, 106, 79, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 62px;
+  background: linear-gradient(135deg, var(--green-glow), var(--green-primary), var(--gold));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: btnGlowRotate 3s linear infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes btnGlowRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 50px rgba(82, 183, 136, 0.5), 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary .btn-arrow {
+  transition: transform 0.3s ease;
+}
+
+.btn-primary:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Secondary CTA button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem 2.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  border-radius: 60px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.4s var(--ease-out-expo);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+  background: rgba(212, 167, 106, 0.05);
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(212, 167, 106, 0.15);
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: heroFadeUp 1s var(--ease-out-expo) 1.3s forwards;
+}
+
+.hero-scroll-text {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  50.01% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 1; }
+}
+
+/* Floating orbs */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 1;
+  animation: orbFloat 20s ease-in-out infinite;
+}
+
+.hero-orb-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(45, 106, 79, 0.15);
+  top: 10%;
+  left: -5%;
+  animation-delay: 0s;
+}
+
+.hero-orb-2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(212, 167, 106, 0.1);
+  top: 20%;
+  right: -5%;
+  animation-delay: -5s;
+}
+
+.hero-orb-3 {
+  width: 250px;
+  height: 250px;
+  background: rgba(82, 183, 136, 0.1);
+  bottom: 10%;
+  left: 30%;
+  animation-delay: -10s;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(20px, -30px); }
+  50% { transform: translate(-10px, 20px); }
+  75% { transform: translate(15px, 10px); }
+}
+
+/* ═══════════════════════════════════════════════════════
+   ABOUT SECTION
+   ═══════════════════════════════════════════════════════ */
+.about {
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.about-image-wrap {
+  position: relative;
+}
+
+.about-image {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.about-image-label {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: rgba(0,0,0,0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 2;
+}
+
+/* Decorative border accent */
+.about-image-accent {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--green-primary);
+  border-radius: 20px;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.about-content {
+  padding: 1rem 0;
+}
+
+.about-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.about-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.about-feature-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(45, 106, 79, 0.2), rgba(45, 106, 79, 0.05));
+  border: 1px solid rgba(45, 106, 79, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.about-feature-text h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.about-feature-text p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 800px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-image { aspect-ratio: 16/10; }
+  .about-features { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   FACILITY GALLERY SECTION
+   ═══════════════════════════════════════════════════════ */
+.facility {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.facility::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+}
+
+.facility-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+}
+
+.facility-header .section-subtitle {
+  margin: 0 auto;
+}
+
+.facility-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.facility-item {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  transition: all 0.5s var(--ease-out-expo);
+}
+
+.facility-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(82, 183, 136, 0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.facility-item.large {
+  grid-column: 1 / -1;
+}
+
+.facility-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 250px;
+  max-height: 400px;
+}
+
+.facility-item.large img {
+  max-height: 500px;
+}
+
+.facility-item video {
+  width: 100%;
+  display: block;
+  max-height: 450px;
+  object-fit: cover;
+}
+
+.facility-item-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.facility-item-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.facility-item-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: 0.3rem;
+}
+
+.facility-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(45, 106, 79, 0.8);
+  border: 2px solid rgba(82, 183, 136, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.facility-play-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+  margin-left: 3px;
+}
+
+@media (max-width: 600px) {
+  .facility-grid { grid-template-columns: 1fr; }
+  .facility-item.large { grid-column: auto; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   PRODUCTS / CAPABILITIES
+   ═══════════════════════════════════════════════════════ */
+.products {
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.products::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+}
+
+.products-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+}
+
+.products-header .section-subtitle {
+  margin: 0 auto;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  position: relative;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  transition: all 0.5s var(--ease-out-expo);
+  overflow: hidden;
+  cursor: default;
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(45, 106, 79, 0.08) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(82, 183, 136, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(45, 106, 79, 0.1);
+}
+
+.product-card:hover::before {
+  opacity: 1;
+}
+
+.product-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--green-primary), var(--green-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 8px 30px rgba(45, 106, 79, 0.3);
+}
+
+.product-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  position: relative;
+  z-index: 1;
+}
+
+.product-card-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+}
+
+.product-card-detail {
+  font-size: 0.82rem;
+  color: var(--green-glow);
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s var(--ease-out-expo);
+}
+
+.product-card:hover .product-card-detail {
+  opacity: 1;
+  max-height: 100px;
+  margin-top: 0.5rem;
+}
+
+.product-card-corner {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 0;
+  background: radial-gradient(circle at bottom right, rgba(45, 106, 79, 0.06), transparent 70%);
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════
+   OUR BRANDS SECTION
+   ═══════════════════════════════════════════════════════ */
+.brands {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.brands::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+}
+
+.brands-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+}
+
+.brands-header .section-subtitle {
+  margin: 0 auto;
+}
+
+.brands-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.brand-card {
+  position: relative;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.5s var(--ease-out-expo);
+  overflow: hidden;
+}
+
+.brand-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(212, 167, 106, 0.06) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.brand-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 167, 106, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(212, 167, 106, 0.08);
+}
+
+.brand-card:hover::before {
+  opacity: 1;
+}
+
+.brand-card-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(45, 106, 79, 0.15), rgba(45, 106, 79, 0.05));
+  border: 1px solid rgba(45, 106, 79, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.brand-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  position: relative;
+  z-index: 1;
+}
+
+.brand-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.2rem;
+}
+
+.brand-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.brand-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--green-glow);
+  background: rgba(45, 106, 79, 0.12);
+  border: 1px solid rgba(45, 106, 79, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+}
+
+.brands-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.brands-cta p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ═══════════════════════════════════════════════════════
+   LAB RESULTS SECTION
+   ═══════════════════════════════════════════════════════ */
+.lab-results {
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.lab-results::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(45, 106, 79, 0.06), transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(212, 167, 106, 0.04), transparent 50%);
+  pointer-events: none;
+}
+
+.lab-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+  position: relative;
+  z-index: 1;
+}
+
+.lab-header .section-subtitle {
+  margin: 0 auto;
+}
+
+.lab-content {
+  position: relative;
+  z-index: 1;
+}
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+
+.lab-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.lab-info-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.lab-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lab-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 1rem 1.2rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.lab-feature:hover {
+  border-color: rgba(82, 183, 136, 0.15);
+  background: rgba(255,255,255,0.06);
+}
+
+.lab-feature-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(45, 106, 79, 0.2), rgba(45, 106, 79, 0.05));
+  border: 1px solid rgba(45, 106, 79, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-glow);
+  font-size: 1.1rem;
+}
+
+.lab-feature h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.lab-feature p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.lab-coa-preview {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.lab-coa-preview::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(135deg, rgba(45, 106, 79, 0.04) 0%, transparent 50%),
+    linear-gradient(315deg, rgba(212, 167, 106, 0.04) 0%, transparent 50%);
+}
+
+.lab-coa-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(212, 167, 106, 0.12), rgba(212, 167, 106, 0.04));
+  border: 1px solid rgba(212, 167, 106, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.lab-coa-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  position: relative;
+  z-index: 1;
+}
+
+.lab-coa-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.lab-coa-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.lab-coa-item {
+  padding: 0.8rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.lab-coa-item-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.lab-coa-item-value {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--green-glow);
+}
+
+.lab-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.9rem 2rem;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.4s var(--ease-out-expo);
+  box-shadow: 0 0 25px rgba(212, 167, 106, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.lab-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 40px rgba(212, 167, 106, 0.5), 0 10px 30px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 800px) {
+  .lab-grid { grid-template-columns: 1fr; }
+  .lab-coa-items { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   PROCESS / TIMELINE
+   ═══════════════════════════════════════════════════════ */
+.process {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.process::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+}
+
+.process-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.process-header .section-subtitle {
+  margin: 0 auto;
+}
+
+.process-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Center line */
+.process-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--green-primary), var(--gold), var(--green-primary), transparent);
+  transform: translateX(-50%);
+}
+
+.process-step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.process-step:last-child { margin-bottom: 0; }
+
+.process-step:nth-child(odd) {
+  flex-direction: row;
+  padding-right: calc(50% + 3rem);
+  text-align: right;
+}
+
+.process-step:nth-child(even) {
+  flex-direction: row-reverse;
+  padding-left: calc(50% + 3rem);
+  text-align: left;
+}
+
+.process-step-number {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 0 30px rgba(45, 106, 79, 0.4);
+  z-index: 2;
+}
+
+.process-step-content {
+  flex: 1;
+}
+
+.process-step-icon {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.process-step-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.process-step-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+  .process-timeline::before {
+    left: 26px;
+  }
+  .process-step:nth-child(odd),
+  .process-step:nth-child(even) {
+    flex-direction: row;
+    padding-right: 0;
+    padding-left: 4.5rem;
+    text-align: left;
+  }
+  .process-step-number {
+    left: 0;
+    transform: none;
+    width: 44px;
+    height: 44px;
+    font-size: 0.95rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   STATS / WHY CHOOSE US
+   ═══════════════════════════════════════════════════════ */
+.stats {
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.stats::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(45, 106, 79, 0.08), transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(212, 167, 106, 0.06), transparent 50%);
+  pointer-events: none;
+}
+
+.stats-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+  position: relative;
+  z-index: 1;
+}
+
+.stats-header .section-subtitle {
+  margin: 0 auto;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border-radius: 20px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  transition: all 0.5s var(--ease-out-expo);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(82, 183, 136, 0.15);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--green-glow), var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.stat-icon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+@media (max-width: 800px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 500px) {
+  .stats-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   TESTIMONIALS
+   ═══════════════════════════════════════════════════════ */
+.testimonials {
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.testimonials::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+}
+
+.testimonials-header .section-subtitle {
+  margin: 0 auto;
+}
+
+.testimonials-carousel {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.testimonials-track {
+  display: flex;
+  transition: transform 0.7s var(--ease-out-expo);
+}
+
+.testimonial-slide {
+  min-width: 100%;
+  padding: 0 1rem;
+}
+
+.testimonial-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  position: relative;
+}
+
+.testimonial-quote-mark {
+  font-size: 4rem;
+  color: var(--green-primary);
+  line-height: 1;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.testimonial-text {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.testimonial-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green-primary), var(--gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.testimonial-author-info h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.testimonial-author-info p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.testimonial-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.testimonial-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.testimonial-dot.active {
+  background: var(--green-glow);
+  box-shadow: 0 0 15px rgba(82, 183, 136, 0.5);
+  transform: scale(1.2);
+}
+
+/* ═══════════════════════════════════════════════════════
+   CERTIFICATIONS / COMPLIANCE
+   ═══════════════════════════════════════════════════════ */
+.certifications {
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.certifications::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+}
+
+.cert-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+}
+
+.cert-header .section-subtitle {
+  margin: 0 auto;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.cert-card {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border-radius: 20px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  transition: all 0.5s var(--ease-out-expo);
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 167, 106, 0.2);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.cert-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(212, 167, 106, 0.15), rgba(212, 167, 106, 0.05));
+  border: 1px solid rgba(212, 167, 106, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  font-size: 1.8rem;
+}
+
+.cert-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.cert-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 500px) {
+  .cert-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   CTA SECTION
+   ═══════════════════════════════════════════════════════ */
+.cta-section {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+  padding: clamp(5rem, 12vw, 10rem) 0;
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 30% 50%, rgba(45, 106, 79, 0.12), transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(212, 167, 106, 0.08), transparent 60%);
+  pointer-events: none;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1.2rem;
+}
+
+.cta-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+/* Contact form */
+.cta-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 550px;
+  margin: 0 auto 2rem;
+}
+
+.cta-form .full-width {
+  grid-column: 1 / -1;
+}
+
+.cta-input {
+  width: 100%;
+  padding: 1rem 1.3rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.cta-input::placeholder {
+  color: var(--text-muted);
+}
+
+.cta-input:focus {
+  border-color: var(--green-primary);
+  box-shadow: 0 0 20px rgba(45, 106, 79, 0.15);
+}
+
+textarea.cta-input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.cta-form-btn {
+  grid-column: 1 / -1;
+  padding: 1.1rem 2.5rem;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-out-expo);
+  box-shadow: 0 0 30px rgba(45, 106, 79, 0.3);
+}
+
+.cta-form-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 50px rgba(82, 183, 136, 0.5), 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.cta-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 300px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.cta-divider::before, .cta-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--glass-border);
+}
+
+.cta-contact-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cta-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.cta-contact-item:hover {
+  color: var(--gold-light);
+}
+
+.cta-contact-icon {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 600px) {
+  .cta-form { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════ */
+.footer {
+  background: var(--bg-primary);
+  padding: 4rem 0 2rem;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.footer-brand p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-top: 1rem;
+  max-width: 300px;
+}
+
+.footer-logo {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.footer-logo img {
+  height: 55px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.footer-logo .logo-canna { color: var(--green-glow); }
+.footer-logo .logo-bri { color: var(--gold); }
+
+.footer-col h4 {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 1.2rem;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.7rem;
+}
+
+.footer-col ul a {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul a:hover {
+  color: var(--green-glow);
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+  background: rgba(45, 106, 79, 0.15);
+  border-color: var(--green-primary);
+  color: var(--green-glow);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--glass-border);
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-copyright {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.footer-age-disclaimer {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  background: rgba(212, 167, 106, 0.05);
+  border: 1px solid rgba(212, 167, 106, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-age-disclaimer .age-icon {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+@media (max-width: 800px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 500px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   BACKGROUND DECORATIVE ELEMENTS
+   ═══════════════════════════════════════════════════════ */
+.bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Separator lines between sections */
+.section-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+}
+
+/* ═══════════════════════════════════════════════════════
+   LOADING SCREEN
+   ═══════════════════════════════════════════════════════ */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-primary);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-logo {
+  opacity: 0;
+  animation: loaderFade 0.4s ease 0.1s forwards;
+}
+
+.loader-logo img {
+  height: 60px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.loader-bar-wrap {
+  width: 200px;
+  height: 2px;
+  background: var(--bg-card);
+  border-radius: 2px;
+  overflow: hidden;
+  opacity: 0;
+  animation: loaderFade 0.4s ease 0.2s forwards;
+}
+
+@keyframes loaderFade {
+  to { opacity: 1; }
+}
+
+.loader-bar {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--green-glow), var(--gold));
+  border-radius: 2px;
+  animation: loaderProgress 0.8s var(--ease-out-expo) 0.2s forwards;
+}
+
+@keyframes loaderProgress {
+  to { width: 100%; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE FINAL TOUCHES
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+  .hero-buttons { flex-direction: column; width: 100%; }
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ LOADING SCREEN ═══════════ -->
+<div class="loader" id="loader">
+  <div class="loader-logo">
+    <img src="assets/logo-horizontal.png" alt="CannaBri Processing NY">
+  </div>
+  <div class="loader-bar-wrap">
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+<!-- ═══════════ CUSTOM CURSOR ═══════════ -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ═══════════ NAVIGATION ═══════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><img src="assets/logo-horizontal.png" alt="CannaBri Processing NY"></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#brands">Our Brands</a></li>
+      <li><a href="#lab-results">Lab Results</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#stats">Why Us</a></li>
+      <li><a href="#certifications">Compliance</a></li>
+      <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-menu-links">
+    <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+    <li><a href="#products" onclick="closeMobileMenu()">Products</a></li>
+    <li><a href="#brands" onclick="closeMobileMenu()">Our Brands</a></li>
+    <li><a href="#lab-results" onclick="closeMobileMenu()">Lab Results</a></li>
+    <li><a href="#process" onclick="closeMobileMenu()">Process</a></li>
+    <li><a href="#stats" onclick="closeMobileMenu()">Why Us</a></li>
+    <li><a href="#certifications" onclick="closeMobileMenu()">Compliance</a></li>
+    <li><a href="#contact" onclick="closeMobileMenu()">Get a Quote</a></li>
+  </ul>
+</div>
+
+<!-- ═══════════ HERO SECTION ═══════════ -->
+<section class="hero" id="hero">
+  <!-- Background Video -->
+  <div class="hero-video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="assets/hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
+  </div>
+
+  <div class="hero-bg">
+    <div class="hero-gradient"></div>
+    <div class="hero-texture"></div>
+    <div class="hero-noise"></div>
+  </div>
+  <canvas id="heroParticles"></canvas>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-fade"></div>
+
+  <div class="hero-content">
+    <div class="hero-logo">
+      <img src="assets/logo-horizontal.png" alt="CannaBri Processing NY">
+    </div>
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Licensed NY Cannabis Manufacturer
+    </div>
+    <h1 class="hero-title">
+      Crafting New York's<br><span class="highlight-green">Finest Cannabis</span> <span class="highlight-gold">Products</span>
+    </h1>
+    <p class="hero-subtitle">
+      10+ years of formulation and manufacturing expertise. State-of-the-art equipment. Your brand, perfected.
+    </p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary">
+        Partner With Us
+        <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#products" class="btn-secondary">
+        Explore Capabilities
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span class="hero-scroll-text">Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════ ABOUT SECTION ═══════════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-wrap reveal-left">
+        <div class="about-image">
+          <img src="assets/facility-1.jpg" alt="CannaBri cannabis pre-roll production facility">
+          <span class="about-image-label">CannaBri Facility</span>
+        </div>
+        <div class="about-image-accent"></div>
+      </div>
+      <div class="about-content">
+        <span class="section-label reveal">Who We Are</span>
+        <h2 class="section-title reveal">New York's Premier<br>Cannabis <span class="highlight-green">Manufacturing</span> Partner</h2>
+        <p class="about-text reveal">
+          CannaBri Processing NY is a state-licensed cannabis manufacturing facility built on a foundation of over a decade of formulation and production expertise. We partner with visionary brands to bring exceptional cannabis products to market — from concept to compliant, shelf-ready product.
+        </p>
+        <div class="about-features stagger-children">
+          <div class="about-feature reveal">
+            <div class="about-feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v4l3 10H6L9 7V3z"/><path d="M6 17h12v2H6z"/><circle cx="10" cy="12" r="1"/><circle cx="14" cy="14" r="1"/></svg></div>
+            <div class="about-feature-text">
+              <h4>10+ Years Expertise</h4>
+              <p>Deep formulation knowledge across categories</p>
+            </div>
+          </div>
+          <div class="about-feature reveal">
+            <div class="about-feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20V8l5 4V8l5 4V4h8a2 2 0 012 2v14"/><path d="M2 20h20"/><path d="M15 8v2m0 4v2m4-8v2m0 4v2"/></svg></div>
+            <div class="about-feature-text">
+              <h4>Licensed NY Facility</h4>
+              <p>Fully compliant, state-inspected operation</p>
+            </div>
+          </div>
+          <div class="about-feature reveal">
+            <div class="about-feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+            <div class="about-feature-text">
+              <h4>State-of-the-Art</h4>
+              <p>Latest equipment for precision manufacturing</p>
+            </div>
+          </div>
+          <div class="about-feature reveal">
+            <div class="about-feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6m-5 0v6.5L4.5 18a2 2 0 001.7 3h11.6a2 2 0 001.7-3L14 9.5V3"/><path d="M7 15h10"/></svg></div>
+            <div class="about-feature-text">
+              <h4>Custom Formulations</h4>
+              <p>Tailored products for your unique brand</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FACILITY GALLERY ═══════════ -->
+<section class="facility" id="facility">
+  <div class="container">
+    <div class="facility-header">
+      <span class="section-label reveal">Inside Our Facility</span>
+      <h2 class="section-title reveal">See Where the <span class="highlight-green">Magic Happens</span></h2>
+      <p class="section-subtitle reveal">Take a look inside our state-of-the-art cannabis manufacturing facility — where precision meets quality at every step.</p>
+    </div>
+    <div class="facility-grid stagger-children">
+      <div class="facility-item large reveal">
+        <video autoplay muted loop playsinline>
+          <source src="assets/facility-video-1.mp4" type="video/mp4">
+        </video>
+        <div class="facility-item-overlay">
+          <div class="facility-item-title">Production Floor</div>
+          <div class="facility-item-desc">Our team at work — crafting precision cannabis products</div>
+        </div>
+      </div>
+      <div class="facility-item reveal">
+        <img src="assets/facility-video-thumb-1.jpg" alt="Workers trimming cannabis buds in lab coats at CannaBri facility" loading="lazy">
+        <div class="facility-item-overlay">
+          <div class="facility-item-title">Quality Control Lab</div>
+          <div class="facility-item-desc">Expert technicians ensuring every product meets our standards</div>
+        </div>
+      </div>
+      <div class="facility-item reveal">
+        <img src="assets/facility-video-thumb-2.jpg" alt="Candy and gummy manufacturing line with stainless steel equipment" loading="lazy">
+        <div class="facility-item-overlay">
+          <div class="facility-item-title">Edibles Manufacturing</div>
+          <div class="facility-item-desc">State-of-the-art gummy and confection production line</div>
+        </div>
+      </div>
+      <div class="facility-item reveal">
+        <img src="assets/manufacturing.jpg" alt="CannaBri cannabis manufacturing equipment" loading="lazy">
+        <div class="facility-item-overlay">
+          <div class="facility-item-title">Processing Equipment</div>
+          <div class="facility-item-desc">Industrial-grade equipment for consistent results</div>
+        </div>
+      </div>
+      <div class="facility-item reveal">
+        <video autoplay muted loop playsinline>
+          <source src="assets/facility-video-2.mp4" type="video/mp4">
+        </video>
+        <div class="facility-item-overlay">
+          <div class="facility-item-title">Packaging & Labeling</div>
+          <div class="facility-item-desc">Compliant, retail-ready packaging process</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PRODUCTS / CAPABILITIES ═══════════ -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="products-header">
+      <span class="section-label reveal">Our Capabilities</span>
+      <h2 class="section-title reveal">Premium Cannabis Products,<br><span class="highlight-gold">Manufactured to Perfection</span></h2>
+      <p class="section-subtitle reveal">From gummies to vape cartridges, we manufacture across every major product category with obsessive attention to quality.</p>
+    </div>
+    <div class="products-grid stagger-children">
+      <div class="product-card reveal">
+        <div class="product-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="14" height="10" rx="2"/><path d="M5 12h14M9 7V5a1 1 0 011-1h4a1 1 0 011 1v2M9 17v2a1 1 0 001 1h4a1 1 0 001-1v-2"/></svg></div>
+        <h3 class="product-card-title">Edibles</h3>
+        <p class="product-card-desc">Gummies, chocolates, baked goods, hard candies, and more — all precisely dosed and consistently delicious.</p>
+        <p class="product-card-detail">Custom flavors, shapes, and dosing options available. Sugar-free and vegan formulations supported.</p>
+        <div class="product-card-corner"></div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13m0-13a3 3 0 00-3 3m3-3a3 3 0 013 3"/><path d="M8 19c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-3H8v3z"/><path d="M7 2c-1.5 1-2.5 3.5-2 6m12-6c1.5 1 2.5 3.5 2 6"/></svg></div>
+        <h3 class="product-card-title">Vape Cartridges & Disposables</h3>
+        <p class="product-card-desc">Premium distillate and live resin cartridges with best-in-class hardware and zero leaks.</p>
+        <p class="product-card-detail">510-thread carts, all-in-one disposables, and pod systems. Custom terpene blending available.</p>
+        <div class="product-card-corner"></div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0L12 2.69z"/></svg></div>
+        <h3 class="product-card-title">Tinctures & Oils</h3>
+        <p class="product-card-desc">Precision-formulated sublingual tinctures and ingestible oils with rapid onset and reliable dosing.</p>
+        <p class="product-card-detail">MCT, hemp seed, and olive oil carriers. Nano-emulsion technology for enhanced bioavailability.</p>
+        <div class="product-card-corner"></div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5h4V3h-4v2zM7 9a2 2 0 012-2h6a2 2 0 012 2v11a2 2 0 01-2 2H9a2 2 0 01-2-2V9z"/><path d="M7 14h10"/></svg></div>
+        <h3 class="product-card-title">Topicals</h3>
+        <p class="product-card-desc">Lotions, balms, salves, and transdermal patches crafted with premium botanicals and cannabinoids.</p>
+        <p class="product-card-detail">Custom scent profiles and therapeutic formulations. Transdermal and fast-absorbing options.</p>
+        <div class="product-card-corner"></div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h3 class="product-card-title">Custom Formulations</h3>
+        <p class="product-card-desc">Have a unique product idea? Our R&D team brings your vision to life with custom formulation and prototyping.</p>
+        <p class="product-card-detail">From ideation to shelf. Minor cannabinoid blends, functional ingredients, and novel delivery methods.</p>
+        <div class="product-card-corner"></div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg></div>
+        <h3 class="product-card-title">White Label Solutions</h3>
+        <p class="product-card-desc">Launch your brand faster with our turnkey white-label program — from formulation to packaging and compliance.</p>
+        <p class="product-card-detail">Full brand support including packaging design guidance, regulatory compliance, and market-ready products.</p>
+        <div class="product-card-corner"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ OUR BRANDS ═══════════ -->
+<section class="brands" id="brands">
+  <div class="container">
+    <div class="brands-header">
+      <span class="section-label reveal">Our Brands</span>
+      <h2 class="section-title reveal">Powering the Brands<br><span class="highlight-gold">Shaping Cannabis</span></h2>
+      <p class="section-subtitle reveal">As a premier white-label manufacturer, we partner with diverse brands across every cannabis product category.</p>
+    </div>
+    <p class="brands-intro reveal">
+      From emerging startups to established multi-state operators, CannaBri provides the manufacturing backbone that brings your brand's vision to life. Our flexible production capabilities and deep category expertise make us the partner of choice for brands that demand excellence.
+    </p>
+    <div class="brands-grid stagger-children">
+      <div class="brand-card reveal">
+        <div class="brand-card-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="14" height="10" rx="2"/><path d="M5 12h14M9 7V5a1 1 0 011-1h4a1 1 0 011 1v2M9 17v2a1 1 0 001 1h4a1 1 0 001-1v-2"/></svg></div>
+        <h3 class="brand-card-title">Edibles Brands</h3>
+        <p class="brand-card-desc">We manufacture gummies, chocolates, hard candies, and baked goods for brands demanding consistent dosing and exceptional taste.</p>
+        <div class="brand-card-tags">
+          <span class="brand-tag">Gummies</span>
+          <span class="brand-tag">Chocolates</span>
+          <span class="brand-tag">Hard Candy</span>
+          <span class="brand-tag">Baked Goods</span>
+        </div>
+      </div>
+      <div class="brand-card reveal">
+        <div class="brand-card-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13m0-13a3 3 0 00-3 3m3-3a3 3 0 013 3"/><path d="M8 19c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-3H8v3z"/><path d="M7 2c-1.5 1-2.5 3.5-2 6m12-6c1.5 1 2.5 3.5 2 6"/></svg></div>
+        <h3 class="brand-card-title">Vape Brands</h3>
+        <p class="brand-card-desc">Premium cartridges and disposables manufactured with top-tier hardware, custom terpene blends, and zero-leak engineering.</p>
+        <div class="brand-card-tags">
+          <span class="brand-tag">510 Carts</span>
+          <span class="brand-tag">Disposables</span>
+          <span class="brand-tag">Pod Systems</span>
+          <span class="brand-tag">Live Resin</span>
+        </div>
+      </div>
+      <div class="brand-card reveal">
+        <div class="brand-card-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0L12 2.69z"/></svg></div>
+        <h3 class="brand-card-title">Wellness Brands</h3>
+        <p class="brand-card-desc">Tinctures, capsules, and topicals crafted for the wellness-focused consumer. Precision formulation meets therapeutic innovation.</p>
+        <div class="brand-card-tags">
+          <span class="brand-tag">Tinctures</span>
+          <span class="brand-tag">Capsules</span>
+          <span class="brand-tag">Topicals</span>
+          <span class="brand-tag">Nano-emulsion</span>
+        </div>
+      </div>
+      <div class="brand-card reveal">
+        <div class="brand-card-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6m-5 2h4M12 2a7 7 0 00-4 12.7V17h8v-2.3A7 7 0 0012 2z"/></svg></div>
+        <h3 class="brand-card-title">Emerging Brands</h3>
+        <p class="brand-card-desc">New to market? We provide full turnkey solutions — from R&D and formulation to packaging and compliance — so you can launch with confidence.</p>
+        <div class="brand-card-tags">
+          <span class="brand-tag">R&D Support</span>
+          <span class="brand-tag">Low MOQ</span>
+          <span class="brand-tag">Turnkey</span>
+          <span class="brand-tag">Market Strategy</span>
+        </div>
+      </div>
+      <div class="brand-card reveal">
+        <div class="brand-card-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20V8l5 4V8l5 4V4h8a2 2 0 012 2v14"/><path d="M2 20h20"/><path d="M15 8v2m0 4v2m4-8v2m0 4v2"/></svg></div>
+        <h3 class="brand-card-title">Multi-State Operators</h3>
+        <p class="brand-card-desc">Scalable production capacity for established operators expanding into New York. Consistent quality across high-volume runs.</p>
+        <div class="brand-card-tags">
+          <span class="brand-tag">High Volume</span>
+          <span class="brand-tag">Scalable</span>
+          <span class="brand-tag">Multi-SKU</span>
+          <span class="brand-tag">Dedicated Lines</span>
+        </div>
+      </div>
+      <div class="brand-card reveal">
+        <div class="brand-card-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h3 class="brand-card-title">Premium & Boutique</h3>
+        <p class="brand-card-desc">Craft-quality manufacturing for luxury and boutique brands. Small batch precision with meticulous attention to every detail.</p>
+        <div class="brand-card-tags">
+          <span class="brand-tag">Small Batch</span>
+          <span class="brand-tag">Craft Quality</span>
+          <span class="brand-tag">Custom Molds</span>
+          <span class="brand-tag">Luxury Packaging</span>
+        </div>
+      </div>
+    </div>
+    <div class="brands-cta reveal">
+      <p>Ready to bring your brand to New York's cannabis market?</p>
+      <a href="#contact" class="btn-primary">
+        Become a Partner
+        <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LAB RESULTS ═══════════ -->
+<section class="lab-results" id="lab-results">
+  <div class="container">
+    <div class="lab-header">
+      <span class="section-label reveal">Lab Results</span>
+      <h2 class="section-title reveal">Transparent Testing,<br><span class="highlight-green">Verified Quality</span></h2>
+      <p class="section-subtitle reveal">Every product we manufacture undergoes rigorous third-party laboratory testing. Full transparency, zero compromises.</p>
+    </div>
+    <div class="lab-content">
+      <div class="lab-grid">
+        <div class="lab-info">
+          <p class="lab-info-text reveal">
+            At CannaBri, quality isn't just a promise — it's verified by independent, accredited laboratories. Every batch of every product is tested before it leaves our facility, ensuring your brand delivers safe, compliant, and consistent products to consumers.
+          </p>
+          <div class="lab-features stagger-children">
+            <div class="lab-feature reveal">
+              <div class="lab-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+              </div>
+              <div>
+                <h4>Potency Analysis</h4>
+                <p>THC, CBD, and minor cannabinoid profiling for accurate dosing and labeling</p>
+              </div>
+            </div>
+            <div class="lab-feature reveal">
+              <div class="lab-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <h4>Contaminant Screening</h4>
+                <p>Testing for pesticides, heavy metals, microbials, and residual solvents</p>
+              </div>
+            </div>
+            <div class="lab-feature reveal">
+              <div class="lab-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v4l3 10H6L9 7V3z"/><path d="M6 17h12v2H6z"/></svg>
+              </div>
+              <div>
+                <h4>Terpene Profiling</h4>
+                <p>Detailed terpene analysis for strain-specific and flavor-optimized products</p>
+              </div>
+            </div>
+            <div class="lab-feature reveal">
+              <div class="lab-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+              </div>
+              <div>
+                <h4>Full COA Documentation</h4>
+                <p>Complete Certificates of Analysis provided for every batch produced</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lab-coa-preview reveal-right">
+          <div class="lab-coa-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6m-6 4h4"/></svg>
+          </div>
+          <h3 class="lab-coa-title">Certificate of Analysis</h3>
+          <p class="lab-coa-desc">Every COA includes comprehensive testing data to ensure full compliance with New York State regulations.</p>
+          <div class="lab-coa-items">
+            <div class="lab-coa-item">
+              <div class="lab-coa-item-label">Cannabinoids</div>
+              <div class="lab-coa-item-value">✓ Verified</div>
+            </div>
+            <div class="lab-coa-item">
+              <div class="lab-coa-item-label">Pesticides</div>
+              <div class="lab-coa-item-value">✓ ND</div>
+            </div>
+            <div class="lab-coa-item">
+              <div class="lab-coa-item-label">Heavy Metals</div>
+              <div class="lab-coa-item-value">✓ Pass</div>
+            </div>
+            <div class="lab-coa-item">
+              <div class="lab-coa-item-label">Microbials</div>
+              <div class="lab-coa-item-value">✓ Pass</div>
+            </div>
+          </div>
+          <a href="mailto:info@cannabriny.com?subject=COA Request" class="lab-cta-btn">
+            Request a COA
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROCESS / TIMELINE ═══════════ -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="process-header">
+      <span class="section-label reveal">Our Process</span>
+      <h2 class="section-title reveal">From Concept to<br><span class="highlight-green">Compliant Product</span></h2>
+      <p class="section-subtitle reveal">A proven, transparent process that takes your brand from idea to shelf-ready product — with quality at every step.</p>
+    </div>
+    <div class="process-timeline">
+      <div class="process-step reveal-left">
+        <div class="process-step-number">01</div>
+        <div class="process-step-content">
+          <div class="process-step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6m-5 2h4M12 2a7 7 0 00-4 12.7V17h8v-2.3A7 7 0 0012 2z"/></svg></div>
+          <h3 class="process-step-title">Consultation & Formulation</h3>
+          <p class="process-step-desc">We start with your vision. Our team works closely with you to define product specifications, target demographics, and formulation goals.</p>
+        </div>
+      </div>
+      <div class="process-step reveal-right">
+        <div class="process-step-number">02</div>
+        <div class="process-step-content">
+          <div class="process-step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8M6 8.5c0-3 2.5-5.5 6-6.5 3.5 1 6 3.5 6 6.5S18 14 12 16c-6-2-6-4.5-6-7.5z"/><path d="M8 15c-3 0-5 2-5 5h5"/><path d="M16 15c3 0 5 2 5 5h-5"/></svg></div>
+          <h3 class="process-step-title">Ingredient Sourcing</h3>
+          <p class="process-step-desc">Premium ingredients from vetted suppliers. Every component is tested for purity, potency, and compliance before it enters our facility.</p>
+        </div>
+      </div>
+      <div class="process-step reveal-left">
+        <div class="process-step-number">03</div>
+        <div class="process-step-content">
+          <div class="process-step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+          <h3 class="process-step-title">Manufacturing & QC</h3>
+          <p class="process-step-desc">State-of-the-art equipment meets meticulous quality control. Every batch is monitored, tested, and documented throughout production.</p>
+        </div>
+      </div>
+      <div class="process-step reveal-right">
+        <div class="process-step-number">04</div>
+        <div class="process-step-content">
+          <div class="process-step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6m-6 4h4"/></svg></div>
+          <h3 class="process-step-title">Packaging & Labeling</h3>
+          <p class="process-step-desc">Compliant, beautiful packaging that represents your brand. Child-resistant, properly labeled, and retail-ready.</p>
+        </div>
+      </div>
+      <div class="process-step reveal-left">
+        <div class="process-step-number">05</div>
+        <div class="process-step-content">
+          <div class="process-step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+          <h3 class="process-step-title">Compliance & Distribution</h3>
+          <p class="process-step-desc">Full regulatory compliance verified. Products are tracked, documented, and ready for distribution through licensed channels.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ STATS / WHY CHOOSE US ═══════════ -->
+<section class="stats" id="stats">
+  <div class="container">
+    <div class="stats-header">
+      <span class="section-label reveal">Why Choose Us</span>
+      <h2 class="section-title reveal">The Numbers Speak<br><span class="highlight-gold">For Themselves</span></h2>
+      <p class="section-subtitle reveal">A track record of excellence in cannabis manufacturing that brands trust.</p>
+    </div>
+    <div class="stats-grid stagger-children">
+      <div class="stat-card reveal">
+        <span class="stat-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4a2 2 0 01-2-2V5a2 2 0 012-2h2M18 9h2a2 2 0 002-2V5a2 2 0 00-2-2h-2"/><path d="M6 3h12v6a6 6 0 01-12 0V3z"/><path d="M9 21h6m-3-6v6"/></svg></span>
+        <div class="stat-number" data-target="10" data-suffix="+">0</div>
+        <div class="stat-label">Years of Formulation & Manufacturing Experience</div>
+      </div>
+      <div class="stat-card reveal">
+        <span class="stat-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg></span>
+        <div class="stat-number" data-target="50000" data-suffix="+">0</div>
+        <div class="stat-label">Products Manufactured & Delivered</div>
+      </div>
+      <div class="stat-card reveal">
+        <span class="stat-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></span>
+        <div class="stat-number" data-target="100" data-suffix="%">0</div>
+        <div class="stat-label">Regulatory Compliance Rate</div>
+      </div>
+      <div class="stat-card reveal">
+        <span class="stat-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg></span>
+        <div class="stat-number" data-target="24" data-suffix="/7">0</div>
+        <div class="stat-label">Quality Control & Monitoring</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TESTIMONIALS ═══════════ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <span class="section-label reveal">Testimonials</span>
+      <h2 class="section-title reveal">Trusted by <span class="highlight-green">Leading Brands</span></h2>
+      <p class="section-subtitle reveal">Hear from the brands that trust CannaBri to manufacture their products.</p>
+    </div>
+    <div class="testimonials-carousel reveal-scale" id="testimonialCarousel">
+      <div class="testimonials-track" id="testimonialTrack">
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-quote-mark">"</div>
+            <p class="testimonial-text">CannaBri transformed our product line. Their expertise in formulation is unmatched, and the quality consistency across thousands of units is remarkable. They're not just a manufacturer — they're a true partner.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AK</div>
+              <div class="testimonial-author-info">
+                <h4>Alex K.</h4>
+                <p>Founder, Premium Cannabis Brand</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-quote-mark">"</div>
+            <p class="testimonial-text">From our first consultation to product delivery, the CannaBri team was incredibly professional and transparent. They helped us navigate NY compliance seamlessly. Couldn't recommend them more highly.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SR</div>
+              <div class="testimonial-author-info">
+                <h4>Sarah R.</h4>
+                <p>COO, Multi-State Cannabis Operator</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-quote-mark">"</div>
+            <p class="testimonial-text">We've worked with several manufacturers before CannaBri, and the difference is night and day. Their facility, their team, their attention to detail — everything is next level. Our best-selling SKU is a CannaBri creation.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">MJ</div>
+              <div class="testimonial-author-info">
+                <h4>Marcus J.</h4>
+                <p>CEO, Boutique Edibles Brand</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-nav" id="testimonialNav">
+        <button class="testimonial-dot active" data-index="0"></button>
+        <button class="testimonial-dot" data-index="1"></button>
+        <button class="testimonial-dot" data-index="2"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CERTIFICATIONS ═══════════ -->
+<section class="certifications" id="certifications">
+  <div class="container">
+    <div class="cert-header">
+      <span class="section-label reveal">Compliance & Trust</span>
+      <h2 class="section-title reveal">Certified, Licensed,<br><span class="highlight-gold">Fully Compliant</span></h2>
+      <p class="section-subtitle reveal">Quality and compliance aren't just checkboxes — they're the foundation of everything we do.</p>
+    </div>
+    <div class="cert-grid stagger-children">
+      <div class="cert-card reveal">
+        <div class="cert-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 7l9-4 9 4M5 7v11h2V7M10 7v11h2V7m3-0v11h2V7"/><path d="M3 21V7m18 14V7"/></svg></div>
+        <h3 class="cert-title">NY State Licensed</h3>
+        <p class="cert-desc">Fully licensed cannabis manufacturing facility operating under New York State regulations.</p>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v4l3 10H6L9 7V3z"/><path d="M6 17h12v2H6z"/><circle cx="10" cy="12" r="1"/><circle cx="14" cy="14" r="1"/></svg></div>
+        <h3 class="cert-title">cGMP Compliant</h3>
+        <p class="cert-desc">Current Good Manufacturing Practices ensuring consistent quality and safety in every product.</p>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6m-5 0v6.5L4.5 18a2 2 0 001.7 3h11.6a2 2 0 001.7-3L14 9.5V3"/><path d="M7 15h10"/></svg></div>
+        <h3 class="cert-title">Lab Tested</h3>
+        <p class="cert-desc">Every batch independently tested by accredited third-party laboratories for potency and purity.</p>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6m-6 4h4"/></svg></div>
+        <h3 class="cert-title">COA Available</h3>
+        <p class="cert-desc">Full Certificates of Analysis provided for complete transparency and regulatory compliance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA SECTION ═══════════ -->
+<section class="cta-section" style="background-image:linear-gradient(to bottom, rgba(10,10,10,0.9), rgba(10,10,10,0.85)), url(assets/background.jpg);background-size:cover;background-position:center;" id="contact">
+  <div class="cta-bg"></div>
+  <div class="container">
+    <div class="cta-content">
+      <span class="section-label reveal">Let's Build Together</span>
+      <h2 class="cta-title reveal">Ready to Launch<br><span class="highlight-green">Your Brand?</span></h2>
+      <p class="cta-subtitle reveal">Whether you have a product concept or need full-service manufacturing, we're here to bring your vision to life.</p>
+      <form class="cta-form reveal" onsubmit="event.preventDefault(); alert('Thank you! We will be in touch shortly.');">
+        <input type="text" class="cta-input" placeholder="Your Name" required>
+        <input type="email" class="cta-input" placeholder="Email Address" required>
+        <input type="text" class="cta-input" placeholder="Company Name">
+        <input type="tel" class="cta-input" placeholder="Phone Number">
+        <textarea class="cta-input full-width" placeholder="Tell us about your project — product type, estimated volume, timeline..."></textarea>
+        <button type="submit" class="cta-form-btn">Get Your Free Quote →</button>
+      </form>
+      <div class="cta-divider reveal">or reach us directly</div>
+      <div class="cta-contact-info reveal">
+        <a href="mailto:info@cannabriny.com" class="cta-contact-item">
+          <span class="cta-contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></span>
+          info@cannabriny.com
+        </a>
+        <a href="tel:+15551234567" class="cta-contact-item">
+          <span class="cta-contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.68 2.34a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.74.32 1.53.55 2.34.68A2 2 0 0122 16.92z"/></svg></span>
+          (555) 123-4567
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">
+          <img src="assets/logo-horizontal.png" alt="CannaBri Processing NY">
+        </a>
+        <p>Licensed New York State cannabis manufacturing facility. 10+ years of expertise in formulation, production, and compliance. Your trusted white-label partner.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 01.87 11.94A6 6 0 0116 8zM2 9.5h5M2 14.5h5"/><circle cx="16" cy="14" r="2"/></svg></a>
+          <a href="#" aria-label="X / Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.7 11.7M4 20l6.6-6.6M20 4l-8.4 8.4"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#brands">Our Brands</a></li>
+          <li><a href="#lab-results">Lab Results</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#certifications">Compliance</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Capabilities</h4>
+        <ul>
+          <li><a href="#products">Edibles</a></li>
+          <li><a href="#products">Vape Cartridges</a></li>
+          <li><a href="#products">Tinctures & Oils</a></li>
+          <li><a href="#products">Topicals</a></li>
+          <li><a href="#products">White Label</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@cannabriny.com">info@cannabriny.com</a></li>
+          <li><a href="tel:+15551234567">(555) 123-4567</a></li>
+          <li><a href="#">New York, NY</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copyright">© 2025 CannaBri Processing NY. All rights reserved.</span>
+      <span class="footer-age-disclaimer">
+        <span class="age-icon">21+</span>
+        This website is intended for adults 21 years of age and older. Cannabis products are for use only by adults 21+. Keep out of reach of children.
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+(function() {
+  'use strict';
+
+  /* ─── LOADING SCREEN ─── */
+  function dismissLoader() {
+    var loader = document.getElementById('loader');
+    if (loader && !loader.classList.contains('hidden')) {
+      loader.classList.add('hidden');
+    }
+  }
+  window.addEventListener('load', function() {
+    setTimeout(dismissLoader, 800);
+  });
+  // Fallback: dismiss after 1.5s no matter what (don't let slow assets block)
+  setTimeout(dismissLoader, 1500);
+
+  /* ─── CUSTOM CURSOR ─── */
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+
+  if (window.matchMedia('(pointer: fine)').matches) {
+    document.addEventListener('mousemove', function(e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.left = mouseX - 4 + 'px';
+      dot.style.top = mouseY - 4 + 'px';
+    });
+
+    function animateRing() {
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      ring.style.left = ringX - 20 + 'px';
+      ring.style.top = ringY - 20 + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    // Hover effects on interactive elements
+    const hoverTargets = document.querySelectorAll('a, button, .product-card, .stat-card, .cert-card, .brand-card, .facility-item');
+    hoverTargets.forEach(function(el) {
+      el.addEventListener('mouseenter', function() { ring.classList.add('hover'); });
+      el.addEventListener('mouseleave', function() { ring.classList.remove('hover'); });
+    });
+  }
+
+  /* ─── NAVIGATION SCROLL BEHAVIOR ─── */
+  const nav = document.getElementById('nav');
+  let lastScrollY = 0;
+  let ticking = false;
+
+  function updateNav() {
+    const scrollY = window.scrollY;
+    
+    if (scrollY > 80) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+
+    if (scrollY > 500) {
+      if (scrollY > lastScrollY + 5) {
+        nav.classList.add('hidden');
+      } else if (scrollY < lastScrollY - 5) {
+        nav.classList.remove('hidden');
+      }
+    } else {
+      nav.classList.remove('hidden');
+    }
+
+    lastScrollY = scrollY;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(updateNav);
+      ticking = true;
+    }
+  });
+
+  /* ─── MOBILE MENU ─── */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  window.closeMobileMenu = function() {
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  /* ─── HERO PARTICLES ─── */
+  const canvas = document.getElementById('heroParticles');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let animFrameId;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  function Particle() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2 + 0.5;
+    this.speedX = (Math.random() - 0.5) * 0.3;
+    this.speedY = (Math.random() - 0.5) * 0.3;
+    this.opacity = Math.random() * 0.5 + 0.1;
+    this.color = Math.random() > 0.7 ? 'rgba(212, 167, 106,' : 'rgba(82, 183, 136,';
+  }
+
+  Particle.prototype.update = function() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+  };
+
+  Particle.prototype.draw = function() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = this.color + this.opacity + ')';
+    ctx.fill();
+  };
+
+  var particleCount = Math.min(80, Math.floor(window.innerWidth / 15));
+  for (var i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+  }
+
+  function connectParticles() {
+    for (var i = 0; i < particles.length; i++) {
+      for (var j = i + 1; j < particles.length; j++) {
+        var dx = particles[i].x - particles[j].x;
+        var dy = particles[i].y - particles[j].y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 150) {
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(82, 183, 136,' + (0.06 * (1 - dist / 150)) + ')';
+          ctx.lineWidth = 0.5;
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(function(p) {
+      p.update();
+      p.draw();
+    });
+    connectParticles();
+    animFrameId = requestAnimationFrame(animateParticles);
+  }
+  animateParticles();
+
+  var heroSection = document.getElementById('hero');
+  var particleObserver = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      if (!animFrameId) animateParticles();
+    } else {
+      cancelAnimationFrame(animFrameId);
+      animFrameId = null;
+    }
+  }, { threshold: 0.1 });
+  particleObserver.observe(heroSection);
+
+  /* ─── SCROLL REVEAL ANIMATIONS ─── */
+  var revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+  
+  var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  revealElements.forEach(function(el) {
+    revealObserver.observe(el);
+  });
+
+  /* ─── STAT COUNT-UP ANIMATION ─── */
+  var statNumbers = document.querySelectorAll('.stat-number');
+  var statsAnimated = false;
+
+  var statsObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !statsAnimated) {
+        statsAnimated = true;
+        statNumbers.forEach(function(el) {
+          var target = parseInt(el.getAttribute('data-target'));
+          var suffix = el.getAttribute('data-suffix') || '';
+          var duration = 2000;
+          var startTime = null;
+
+          function animate(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = Math.min((timestamp - startTime) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 4);
+            var current = Math.floor(eased * target);
+            
+            if (target >= 1000) {
+              el.textContent = current.toLocaleString() + suffix;
+            } else {
+              el.textContent = current + suffix;
+            }
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              if (target >= 1000) {
+                el.textContent = target.toLocaleString() + suffix;
+              } else {
+                el.textContent = target + suffix;
+              }
+            }
+          }
+          requestAnimationFrame(animate);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  var statsSection = document.querySelector('.stats-grid');
+  if (statsSection) statsObserver.observe(statsSection);
+
+  /* ─── TESTIMONIAL CAROUSEL ─── */
+  var track = document.getElementById('testimonialTrack');
+  var dots = document.querySelectorAll('.testimonial-dot');
+  var currentSlide = 0;
+  var totalSlides = 3;
+  var autoplayInterval;
+
+  function goToSlide(index) {
+    currentSlide = index;
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    dots.forEach(function(d, i) {
+      d.classList.toggle('active', i === index);
+    });
+  }
+
+  dots.forEach(function(d) {
+    d.addEventListener('click', function() {
+      goToSlide(parseInt(this.getAttribute('data-index')));
+      resetAutoplay();
+    });
+  });
+
+  function autoplay() {
+    autoplayInterval = setInterval(function() {
+      goToSlide((currentSlide + 1) % totalSlides);
+    }, 5000);
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoplayInterval);
+    autoplay();
+  }
+
+  autoplay();
+
+  var touchStartX = 0;
+  var touchEndX = 0;
+  var carousel = document.getElementById('testimonialCarousel');
+
+  carousel.addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  carousel.addEventListener('touchend', function(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    var diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && currentSlide < totalSlides - 1) {
+        goToSlide(currentSlide + 1);
+      } else if (diff < 0 && currentSlide > 0) {
+        goToSlide(currentSlide - 1);
+      }
+      resetAutoplay();
+    }
+  }, { passive: true });
+
+  /* ─── SMOOTH SCROLL FOR NAV LINKS ─── */
+  document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var href = this.getAttribute('href');
+      if (href === '#') return;
+      e.preventDefault();
+      var target = document.querySelector(href);
+      if (target) {
+        var offset = 80;
+        var top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* ─── PARALLAX EFFECT ON HERO ORB ELEMENTS ─── */
+  var orbs = document.querySelectorAll('.hero-orb');
+  window.addEventListener('scroll', function() {
+    var scrollY = window.scrollY;
+    if (scrollY < window.innerHeight) {
+      orbs.forEach(function(orb, i) {
+        var speed = (i + 1) * 0.05;
+        orb.style.transform = 'translateY(' + (scrollY * speed) + 'px)';
+      });
+    }
+  }, { passive: true });
+
+})();
+</script>
+</body>
+</html>
